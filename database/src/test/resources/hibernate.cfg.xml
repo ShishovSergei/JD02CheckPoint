@@ -24,5 +24,6 @@
     <mapping class="by.itacademy.entity.FilmFormat"></mapping>
     <mapping class="by.itacademy.entity.Seance"></mapping>
     <mapping class="by.itacademy.entity.Ticket"></mapping>
+    <mapping class="by.itacademy.entity.Address"></mapping>
   </session-factory>
 </hibernate-configuration>

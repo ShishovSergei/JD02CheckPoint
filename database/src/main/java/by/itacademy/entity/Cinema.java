@@ -20,11 +20,8 @@ public class Cinema {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "city", nullable = false)
-    private String city;
-
-    @Column(name = "street", nullable = false)
-    private String street;
+    @Embedded
+    private Address address;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -34,4 +31,10 @@ public class Cinema {
 
     @OneToMany(mappedBy = "cinema")
     private Set<Hall> halls = new HashSet<>();
+
+    public Cinema(Address address, String name, String description) {
+        this.address = address;
+        this.name = name;
+        this.description = description;
+    }
 }

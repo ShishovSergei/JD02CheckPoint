@@ -42,9 +42,9 @@ public class FilmDao {
             u.setPassword("rgfdfwgr");
             session.save(u);
 
-            session.createQuery("select c from CastMember c", CastMember.class)
+            /*session.createQuery("select c from CastMember c", CastMember.class)
                     .list()
-                    .forEach(System.out::println);
+                    .forEach(System.out::println);*/
 
 
             transaction.commit();

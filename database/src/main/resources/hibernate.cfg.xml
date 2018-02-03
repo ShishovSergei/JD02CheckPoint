@@ -11,7 +11,7 @@
         <property name="connection.password">root</property>
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
-        <!--<property name="hbm2ddl.auto">create</property>-->
+       <!-- <property name="hbm2ddl.auto">create</property>-->
 
 
         <mapping class="by.itacademy.entity.User"></mapping>
@@ -25,5 +25,6 @@
         <mapping class="by.itacademy.entity.FilmFormat"></mapping>
         <mapping class="by.itacademy.entity.Seance"></mapping>
         <mapping class="by.itacademy.entity.Ticket"></mapping>
+        <mapping class="by.itacademy.entity.Address"></mapping>
     </session-factory>
 </hibernate-configuration>
