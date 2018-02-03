@@ -21,5 +21,9 @@
         <mapping class="by.itacademy.entity.Film"></mapping>
         <mapping class="by.itacademy.entity.CastMember"></mapping>
         <mapping class="by.itacademy.entity.Actor"></mapping>
+        <mapping class="by.itacademy.entity.Director"></mapping>
+        <mapping class="by.itacademy.entity.FilmFormat"></mapping>
+        <mapping class="by.itacademy.entity.Seance"></mapping>
+        <mapping class="by.itacademy.entity.Ticket"></mapping>
     </session-factory>
 </hibernate-configuration>

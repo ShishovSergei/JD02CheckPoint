@@ -1,24 +1,18 @@
 package by.itacademy.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "actors")
-@PrimaryKeyJoinColumn(name = "cast_members_id")
+@ToString(callSuper = true)
+@DiscriminatorValue("ACTOR")
 public class Actor extends CastMember {
 
-    @Column(name = "understudy", nullable = false)
-    private boolean understudy;
+    @Column(name = "understudy")
+    private String understudy;
 }

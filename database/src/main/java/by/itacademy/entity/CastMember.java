@@ -1,22 +1,26 @@
 package by.itacademy.entity;
 
 import by.itacademy.enums.Gender;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@ToString
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type")
 @Table(name = "cast_members")
-public class CastMember extends BaseEntity{
+public class CastMember {
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    private int id;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -28,5 +32,9 @@ public class CastMember extends BaseEntity{
     private LocalDate birthday;
 
     @Column(name = "gender", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Gender gender;
+
+    @ManyToMany(mappedBy = "castMembers")
+    private Set<Film> films = new HashSet<>();
 }

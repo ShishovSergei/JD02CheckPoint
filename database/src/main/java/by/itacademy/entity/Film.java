@@ -1,6 +1,5 @@
 package by.itacademy.entity;
 
-import javafx.scene.input.DataFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,7 +16,10 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @Table(name = "films")
-public class Film extends BaseEntity {
+public class Film {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @Column(name = "title", nullable = false)
     private String title;
@@ -28,7 +30,7 @@ public class Film extends BaseEntity {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "country")
+    @Column(name = "country", nullable = false)
     private String country;
 
     public Film(String title, LocalDate realiseDate, String description, String country) {
@@ -46,7 +48,15 @@ public class Film extends BaseEntity {
     )
     private Set<FilmGenre> genres = new HashSet<>();
 
-    /*public void addFilmGenres(FilmGenre filmGenre) {
-        genres.add(filmGenre);
-    }*/
+    @ManyToMany
+    @JoinTable(
+            name = "films_has_cast_members",
+            joinColumns = @JoinColumn(name = "films_id"),
+            inverseJoinColumns = @JoinColumn(name = "cast_members_id")
+    )
+    private Set<CastMember> castMembers = new HashSet<>();
+
+    @OneToMany(mappedBy = "film")
+    private Set<Seance> seances = new HashSet<>();
+
 }

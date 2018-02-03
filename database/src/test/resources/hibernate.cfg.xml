@@ -6,14 +6,23 @@
   <session-factory>
     <property name="connection.driver_class">org.h2.Driver</property>
     <property name="dialect">org.hibernate.dialect.H2Dialect</property>
-    <property name="connection.url">jdbc:h2:mem:hr</property>
+    <property name="connection.url">jdbc:h2:mem:cinema_db</property>
     <property name="connection.username">sa</property>
     <property name="connection.password"/>
-    <property name="hbm2ddl.auto">create-drop</property>
+    <property name="hbm2ddl.auto">create<!-- -drop--></property>
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
 
-    <mapping class="by.itacademy.entity.Employee"/>
-    <mapping class="by.itacademy.entity.Hero"/>
+    <mapping class="by.itacademy.entity.User"></mapping>
+    <mapping class="by.itacademy.entity.Cinema"></mapping>
+    <mapping class="by.itacademy.entity.Hall"></mapping>
+    <mapping class="by.itacademy.entity.FilmGenre"></mapping>
+    <mapping class="by.itacademy.entity.Film"></mapping>
+    <mapping class="by.itacademy.entity.CastMember"></mapping>
+    <mapping class="by.itacademy.entity.Actor"></mapping>
+    <mapping class="by.itacademy.entity.Director"></mapping>
+    <mapping class="by.itacademy.entity.FilmFormat"></mapping>
+    <mapping class="by.itacademy.entity.Seance"></mapping>
+    <mapping class="by.itacademy.entity.Ticket"></mapping>
   </session-factory>
 </hibernate-configuration>

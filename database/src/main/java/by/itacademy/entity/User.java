@@ -1,13 +1,14 @@
 package by.itacademy.entity;
 
 import by.itacademy.enums.UserType;
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -15,7 +16,10 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "users")
-public class User extends BaseEntity {
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
 
     @Column(name = "login", nullable = false, unique = true)
     private String login;
@@ -29,6 +33,9 @@ public class User extends BaseEntity {
     @Column(name = "type", nullable = false)
     @Enumerated(EnumType.STRING)
     private UserType type;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Ticket> tickets = new HashSet<>();
 
     public User(String login, String password, String email) {
         this.login = login;

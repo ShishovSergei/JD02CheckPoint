@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,19 +16,16 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "film_genres")
-public class FilmGenre {
+@Table(name = "film_format")
+public class FilmFormat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "genre", nullable = false)
-    private String genre;
+    @Column(name = "format", nullable = false)
+    private String format;
 
-    @ManyToMany(mappedBy = "genres")
-    private Set<Film> films = new HashSet<>();
+    @OneToMany(mappedBy = "filmFormat")
+    private Set<Seance> seances = new HashSet<>();
 
-    public FilmGenre(String genre) {
-        this.genre = genre;
-    }
 }
