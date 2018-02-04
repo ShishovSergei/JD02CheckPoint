@@ -11,7 +11,7 @@ import junit.framework.TestSuite;
 public class FilmServiceTest {
     @org.junit.Test
     public void filmServiceTest(){
-        Assert.assertEquals(new FilmService().getDefaultFIlm(),
-                "Доктор Стрейнджлав, или Как я перестал бояться и полюбил бомбу");
+        Assert.assertEquals(new FilmService().getDefaultFIlm().getCountry(),
+                "Беларусь");
     }
 }

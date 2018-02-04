@@ -1,4 +1,4 @@
-<%@ page import="by.itacademy.FilmTitleServlet" %><%--
+<%@ page import="by.itacademy.FilmServlet" %><%--
   Created by IntelliJ IDEA.
   User: Сергей
   Date: 19.01.2018
@@ -12,6 +12,6 @@
     <title>Omg, it works</title>
 </head>
 <body>
-<%= request.getAttribute("filmtitle") %>
+${requestScope.film}
 </body>
 </html>
