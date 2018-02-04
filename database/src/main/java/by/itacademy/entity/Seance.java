@@ -1,10 +1,7 @@
 package by.itacademy.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -17,6 +14,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@ToString
 @Table(name = "seances")
 public class Seance {
     @Id
@@ -44,6 +42,10 @@ public class Seance {
     @OneToMany(mappedBy = "seance")
     private Set<Ticket> tickets = new HashSet<>();
 
-
-
+    public Seance(LocalDate date, LocalTime time, Hall hall, FilmFormat filmFormat) {
+        this.date = date;
+        this.time = time;
+        this.hall = hall;
+        this.filmFormat = filmFormat;
+    }
 }

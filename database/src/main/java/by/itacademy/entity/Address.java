@@ -1,10 +1,7 @@
 package by.itacademy.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -13,6 +10,7 @@ import javax.persistence.Embeddable;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Embeddable
 public class Address {
     @Column(name = "city")

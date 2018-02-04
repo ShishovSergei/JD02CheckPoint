@@ -24,13 +24,38 @@ public class FilmDao {
             Transaction transaction = session.beginTransaction();
 
             Director d = new Director();
+            ;
+            d.setStudio("studio");
+            d.setGender(Gender.MAN);
+            d.setName("sds");
+            d.setSurname("fgdf");
+            session.save(d);
+
+            Actor a = new Actor();
+            a.setUnderstudy("yes");
+            a.setGender(Gender.MAN);
+            a.setName("gdf");
+            a.setSurname("fgdfgfgf");
+            session.save(a);
+
+            Set<CastMember> cm = new HashSet<>();
+            cm.add(a);
+            cm.add(d);
+
+            Film f1 = new Film("Friday 13th", LocalDate.now(), "fdfd", "Belarus");
+            f1.setCastMembers(cm);
+            session.save(f1);
+
+            session.createQuery("select c from Film c", Film.class)
+                    .list()
+                    .forEach(System.out::println);
 
             /*d.setStudio("studio");
             d.setGender(Gender.WOMAN);
             d.setName("sds");
             d.setSurname("fgdf");
             session.save(d);*/
-            Actor a = new Actor();
+            /*Actor a = new Actor();
             a.setUnderstudy("sffdfgfgd");
             a.setGender(Gender.MAN);
             a.setName("564cv6");
@@ -42,7 +67,7 @@ public class FilmDao {
             u.setPassword("rgfdfwgr");
             session.save(u);
 
-            /*session.createQuery("select c from CastMember c", CastMember.class)
+            session.createQuery("select c from CastMember c", CastMember.class)
                     .list()
                     .forEach(System.out::println);*/
 

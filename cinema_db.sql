@@ -184,3 +184,4 @@ CREATE TABLE users
 ALTER TABLE tickets
   ADD CONSTRAINT FK384xu0lexsjs1mqhaj0cese1t
 FOREIGN KEY (users_id) REFERENCES users (id);
+

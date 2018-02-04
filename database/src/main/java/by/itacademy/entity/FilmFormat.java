@@ -1,10 +1,7 @@
 package by.itacademy.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -16,6 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@ToString
 @Table(name = "film_format")
 public class FilmFormat {
     @Id
@@ -28,4 +26,7 @@ public class FilmFormat {
     @OneToMany(mappedBy = "filmFormat")
     private Set<Seance> seances = new HashSet<>();
 
+    public FilmFormat(String format) {
+        this.format = format;
+    }
 }

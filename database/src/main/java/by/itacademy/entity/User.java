@@ -1,10 +1,7 @@
 package by.itacademy.entity;
 
 import by.itacademy.enums.UserType;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -15,6 +12,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@ToString
 @Table(name = "users")
 public class User {
     @Id
@@ -37,9 +35,10 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Set<Ticket> tickets = new HashSet<>();
 
-    public User(String login, String password, String email) {
+    public User(String login, String password, String email, UserType type) {
         this.login = login;
         this.password = password;
         this.email = email;
+        this.type = type;
     }
 }

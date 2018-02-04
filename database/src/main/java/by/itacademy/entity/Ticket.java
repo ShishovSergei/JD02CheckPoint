@@ -1,10 +1,7 @@
 package by.itacademy.entity;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -14,6 +11,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@ToString
 @Table(name = "tickets")
 public class Ticket {
     @Id
@@ -33,4 +31,10 @@ public class Ticket {
     @ManyToOne
     @JoinColumn(name = "seances_id")
     private Seance seance;
+
+    public Ticket(Float price, int place, Seance seance) {
+        this.price = price;
+        this.place = place;
+        this.seance = seance;
+    }
 }
