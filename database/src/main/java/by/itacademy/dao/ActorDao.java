@@ -1,7 +1,6 @@
 package by.itacademy.dao;
 
 import by.itacademy.entity.Actor;
-import by.itacademy.entity.CastMember;
 import org.hibernate.Session;
 
 import java.util.List;

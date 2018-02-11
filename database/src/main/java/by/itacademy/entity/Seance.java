@@ -1,21 +1,18 @@
 package by.itacademy.entity;
 
 
-import lombok.Setter;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Column;
-import javax.persistence.GenerationType;
-import javax.persistence.OneToMany;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.HashSet;
@@ -28,7 +25,7 @@ import java.util.Set;
 @Entity
 @ToString
 @Table(name = "seances")
-public class Seance extends BaseEntity{
+public class Seance extends BaseEntity {
 
     @Column(name = "date", nullable = false)
     private LocalDate date;

@@ -1,6 +1,5 @@
 package by.itacademy.dao;
 
-import by.itacademy.entity.Actor;
 import by.itacademy.entity.Director;
 import org.hibernate.Session;
 

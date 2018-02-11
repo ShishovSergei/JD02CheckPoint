@@ -60,7 +60,7 @@ public abstract class BaseDao<T extends BaseEntity> {
         return objectToUpdate.getId();
     }
 
-    public int delete(T objectToDelete) {
+    public void delete(T objectToDelete) {
 
         Session session = SESSION_FACTORY.openSession();
         session.beginTransaction();
@@ -70,7 +70,6 @@ public abstract class BaseDao<T extends BaseEntity> {
         session.getTransaction().commit();
         session.close();
 
-        return objectToDelete.getId();
 
     }
 

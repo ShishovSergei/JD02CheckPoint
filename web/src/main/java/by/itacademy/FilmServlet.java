@@ -17,8 +17,11 @@ import java.io.IOException;
 public class FilmServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("film", new FilmService().getDefaultFIlm());
+        req.setAttribute("films", new FilmService().getDefaultFIlm());
         req.getRequestDispatcher("/WEB-INF/jsp/film.jsp")
                 .forward(req, resp);
+
+        req.getParameter("nameTitle");
+
     }
 }

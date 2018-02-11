@@ -1,11 +1,9 @@
 package by.itacademy.dao;
 
 import by.itacademy.entity.CastMember;
-import by.itacademy.enums.CastMemberType;
 import by.itacademy.enums.Gender;
 import org.hibernate.Session;
 
-import javax.persistence.GenerationType;
 import java.util.List;
 
 public class CastMemberDao<T extends CastMember> extends BaseDao<CastMember> {
