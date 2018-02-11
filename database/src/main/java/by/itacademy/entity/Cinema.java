@@ -25,10 +25,7 @@ import java.util.Set;
 @Entity
 @ToString
 @Table(name = "cinemas")
-public class Cinema {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class Cinema extends BaseEntity{
 
     @Embedded
     private Address address;

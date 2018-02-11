@@ -1,5 +1,6 @@
-package by.itacademy;
+package by.itacademy.MappingTests;
 
+import by.itacademy.BaseTest;
 import by.itacademy.entity.Address;
 import by.itacademy.entity.CastMember;
 import by.itacademy.entity.Cinema;
@@ -14,7 +15,7 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CinemaMappingTest extends BaseTest{
+public class CinemaMappingTest extends BaseTest {
     @Test
     public void testSaveCinema() {
         Session session = SESSION_FACTORY.openSession();

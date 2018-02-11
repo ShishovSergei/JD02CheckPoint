@@ -1,5 +1,6 @@
-package by.itacademy;
+package by.itacademy.MappingTests;
 
+import by.itacademy.BaseTest;
 import by.itacademy.entity.FilmGenre;
 import by.itacademy.entity.User;
 import by.itacademy.enums.UserType;

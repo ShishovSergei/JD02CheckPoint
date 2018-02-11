@@ -1,5 +1,6 @@
-package by.itacademy;
+package by.itacademy.MappingTests;
 
+import by.itacademy.BaseTest;
 import by.itacademy.entity.Address;
 import by.itacademy.entity.Cinema;
 import by.itacademy.entity.Director;

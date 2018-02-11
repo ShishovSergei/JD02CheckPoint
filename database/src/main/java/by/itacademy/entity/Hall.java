@@ -26,10 +26,7 @@ import java.util.Set;
 @Entity
 @ToString
 @Table(name = "halls")
-public class Hall {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class Hall extends BaseEntity{
 
     @Column(name = "capacity", nullable = false)
     private int capacity;
@@ -43,5 +40,10 @@ public class Hall {
 
     public Hall(int capacity) {
         this.capacity = capacity;
+    }
+
+    public Hall(int capacity, Cinema cinema) {
+        this.capacity = capacity;
+        this.cinema = cinema;
     }
 }

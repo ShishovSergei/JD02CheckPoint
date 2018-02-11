@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
@@ -23,10 +24,7 @@ import javax.persistence.ManyToOne;
 @Entity
 @ToString
 @Table(name = "tickets")
-public class Ticket {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class Ticket extends BaseEntity{
 
     @Column(name = "price", nullable = false)
     private Float price;
@@ -47,4 +45,11 @@ public class Ticket {
         this.place = place;
         this.seance = seance;
     }
+
+    public Ticket(Float price, int place, User user) {
+        this.price = price;
+        this.place = place;
+        this.user = user;
+    }
+
 }

@@ -28,16 +28,16 @@ import java.util.Set;
 @Entity
 @ToString
 @Table(name = "seances")
-public class Seance {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class Seance extends BaseEntity{
 
     @Column(name = "date", nullable = false)
     private LocalDate date;
 
     @Column(name = "time", nullable = false)
     private LocalTime time;
+
+    @Column(name = "age_limit")
+    private String ageLimit;
 
     @ManyToOne
     @JoinColumn(name = "halls_id")
@@ -59,5 +59,17 @@ public class Seance {
         this.time = time;
         this.hall = hall;
         this.filmFormat = filmFormat;
+    }
+
+    public Seance(LocalDate date, LocalTime time) {
+        this.date = date;
+        this.time = time;
+
+    }
+
+    public Seance(LocalDate date, LocalTime time, String ageLimit) {
+        this.date = date;
+        this.time = time;
+        this.ageLimit = ageLimit;
     }
 }

@@ -1,9 +1,10 @@
-package by.itacademy;
+package by.itacademy.MappingTests;
 
-import by.itacademy.entity.Film;
+import by.itacademy.BaseTest;
 import by.itacademy.entity.FilmFormat;
 import by.itacademy.entity.Hall;
 import by.itacademy.entity.Seance;
+import by.itacademy.entity.Ticket;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Assert;
@@ -12,9 +13,9 @@ import org.junit.Test;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class SeanceMappingTest extends BaseTest {
+public class TicketMappingTest extends BaseTest {
     @Test
-    public void testSaveSeance() {
+    public void testSaveTicket() {
         Session session = SESSION_FACTORY.openSession();
         Transaction transaction = session.beginTransaction();
 
@@ -26,8 +27,12 @@ public class SeanceMappingTest extends BaseTest {
                 LocalTime.now(),hall,filmFormat);
         session.save(seance);
 
-        Seance s = session.get(Seance.class, 1);
-        Assert.assertEquals(s.getDate(),LocalDate.of(2017,5,30));
+        Ticket ticket = new Ticket(450f, 35, seance);
+        session.save(ticket);
+
+        Ticket t = session.get(Ticket.class, 1);
+        Assert.assertEquals(t.getPlace(),35);
+        Assert.assertEquals(t.getPrice(),450f);
 
         transaction.commit();
         session.close();

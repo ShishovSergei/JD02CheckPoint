@@ -11,7 +11,7 @@ import java.time.LocalDate;
 /**
  * @author Сергей
  */
-public class FilmDao {
+public class FilmDaoOld {
     public Film getDefaultFilm() {
         SessionFactory sessionFactory = new Configuration()
                 .configure().buildSessionFactory();

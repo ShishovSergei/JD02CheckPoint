@@ -1,5 +1,6 @@
-package by.itacademy;
+package by.itacademy.MappingTests;
 
+import by.itacademy.BaseTest;
 import by.itacademy.entity.Actor;
 import by.itacademy.entity.CastMember;
 import by.itacademy.entity.Director;

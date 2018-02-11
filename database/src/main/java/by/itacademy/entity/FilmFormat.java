@@ -24,10 +24,7 @@ import java.util.Set;
 @Entity
 @ToString
 @Table(name = "film_format")
-public class FilmFormat {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class FilmFormat extends BaseEntity{
 
     @Column(name = "format", nullable = false)
     private String format;

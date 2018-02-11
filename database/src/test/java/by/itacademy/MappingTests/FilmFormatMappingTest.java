@@ -1,5 +1,6 @@
-package by.itacademy;
+package by.itacademy.MappingTests;
 
+import by.itacademy.BaseTest;
 import by.itacademy.entity.Film;
 import by.itacademy.entity.FilmFormat;
 import by.itacademy.entity.Seance;

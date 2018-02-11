@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Table;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
@@ -24,10 +25,7 @@ import java.util.Set;
 @Entity
 @ToString
 @Table(name = "film_genres")
-public class FilmGenre {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class FilmGenre extends BaseEntity{
 
     @Column(name = "genre", nullable = false)
     private String genre;

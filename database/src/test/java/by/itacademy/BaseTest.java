@@ -2,6 +2,7 @@ package by.itacademy;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 

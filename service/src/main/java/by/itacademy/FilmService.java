@@ -8,6 +8,6 @@ import by.itacademy.entity.Film;
  */
 public class FilmService {
     public Film getDefaultFIlm() {
-        return new FilmDao().getDefaultFilm();
+        return new FilmDaoOld().getDefaultFilm();
     }
 }
