@@ -2,7 +2,6 @@ package by.itacademy;
 
 import by.itacademy.dto.CastMemberDto;
 import by.itacademy.entity.CastMember;
-import by.itacademy.enums.Gender;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -2,7 +2,6 @@ package by.itacademy.dao;
 
 import by.itacademy.dto.CastMemberDto;
 import by.itacademy.entity.CastMember;
-import by.itacademy.enums.Gender;
 import org.hibernate.Session;
 
 import java.util.List;

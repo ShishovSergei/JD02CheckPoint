@@ -1,6 +1,5 @@
 package by.itacademy.dto;
 
-import by.itacademy.enums.Gender;
 import lombok.Getter;
 import lombok.Setter;
 

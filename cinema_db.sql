@@ -1,187 +1,219 @@
-CREATE TABLE cast_members
+create table cast_members
 (
-  id         INT AUTO_INCREMENT
-    PRIMARY KEY,
-  name       VARCHAR(45)                NOT NULL,
-  surname    VARCHAR(45)                NOT NULL,
-  birthday   VARCHAR(45)                NULL,
-  gender     ENUM ('MAN', 'WOMAN')      NOT NULL,
-  type       ENUM ('ACTOR', 'DIRECTOR') NOT NULL,
-  studio     VARCHAR(45)                NULL,
-  understudy VARCHAR(45)                NULL
+	id int auto_increment
+		primary key,
+	name varchar(45) not null,
+	surname varchar(45) not null,
+	birthday varchar(45) null,
+	gender enum('MAN', 'WOMAN') not null,
+	type enum('ACTOR', 'DIRECTOR') not null,
+	studio varchar(45) null,
+	understudy varchar(45) null
 )
-  ENGINE = InnoDB
-  CHARSET = utf8;
+engine=InnoDB charset=utf8
+;
 
-CREATE TABLE cinemas
+create table cinemas
 (
-  id          INT AUTO_INCREMENT
-    PRIMARY KEY,
-  city        VARCHAR(45) NOT NULL,
-  street      VARCHAR(45) NOT NULL,
-  name        VARCHAR(45) NOT NULL,
-  description VARCHAR(45) NULL
+	id int auto_increment
+		primary key,
+	city varchar(45) not null,
+	street varchar(45) not null,
+	name varchar(45) not null,
+	description varchar(45) null
 )
-  ENGINE = InnoDB
-  CHARSET = utf8;
+engine=InnoDB charset=utf8
+;
 
-CREATE TABLE film_format
+create table film_format
 (
-  id     INT AUTO_INCREMENT
-    PRIMARY KEY,
-  format VARCHAR(8) NOT NULL
+	id int auto_increment
+		primary key,
+	format varchar(8) not null
 )
-  ENGINE = InnoDB
-  CHARSET = utf8;
+engine=InnoDB charset=utf8
+;
 
-CREATE TABLE film_genres
+create table film_genres
 (
-  id    INT AUTO_INCREMENT
-    PRIMARY KEY,
-  genre VARCHAR(45) NOT NULL
+	id int auto_increment
+		primary key,
+	genre varchar(45) not null
 )
-  ENGINE = InnoDB
-  CHARSET = utf8;
+engine=InnoDB charset=utf8
+;
 
-CREATE TABLE films
+create table films
 (
-  id           INT AUTO_INCREMENT
-    PRIMARY KEY,
-  title        VARCHAR(20)  NOT NULL,
-  release_date DATE         NOT NULL,
-  description  VARCHAR(300) NULL,
-  country      VARCHAR(45)  NOT NULL
+	id int auto_increment
+		primary key,
+	title varchar(20) not null,
+	release_date date not null,
+	description varchar(300) null,
+	country varchar(45) not null
 )
-  ENGINE = InnoDB
-  CHARSET = utf8;
+engine=InnoDB charset=utf8
+;
 
-CREATE TABLE films_has_cast_members
+create table films_has_cast_members
 (
-  films_id        INT NOT NULL,
-  cast_members_id INT NOT NULL,
-  PRIMARY KEY (films_id, cast_members_id),
-  CONSTRAINT FKeqtw3akdtv9rgqs3evfqib78o
-  FOREIGN KEY (films_id) REFERENCES films (id),
-  CONSTRAINT FKh8a94lwfqxxeceq96ewjee1ax
-  FOREIGN KEY (cast_members_id) REFERENCES cast_members (id)
+	films_id int not null,
+	cast_members_id int not null,
+	primary key (films_id, cast_members_id),
+	constraint FKeqtw3akdtv9rgqs3evfqib78o
+		foreign key (films_id) references films (id),
+	constraint FKh8a94lwfqxxeceq96ewjee1ax
+		foreign key (cast_members_id) references cast_members (id)
 )
-  ENGINE = InnoDB;
+engine=InnoDB
+;
 
-CREATE INDEX FKh8a94lwfqxxeceq96ewjee1ax
-  ON films_has_cast_members (cast_members_id);
+create index FKh8a94lwfqxxeceq96ewjee1ax
+	on films_has_cast_members (cast_members_id)
+;
 
-CREATE TABLE films_has_film_genres
+create table films_has_film_genres
 (
-  films_id       INT NOT NULL,
-  film_genres_id INT NOT NULL,
-  PRIMARY KEY (films_id, film_genres_id),
-  CONSTRAINT FKdnx52annrtm9m84pht3u4k9gv
-  FOREIGN KEY (films_id) REFERENCES films (id),
-  CONSTRAINT FKlh4utaq074vxednb9ebhltls3
-  FOREIGN KEY (film_genres_id) REFERENCES film_genres (id)
+	films_id int not null,
+	film_genres_id int not null,
+	primary key (films_id, film_genres_id),
+	constraint FKdnx52annrtm9m84pht3u4k9gv
+		foreign key (films_id) references films (id),
+	constraint FKlh4utaq074vxednb9ebhltls3
+		foreign key (film_genres_id) references film_genres (id)
 )
-  ENGINE = InnoDB;
+engine=InnoDB
+;
 
-CREATE INDEX FKlh4utaq074vxednb9ebhltls3
-  ON films_has_film_genres (film_genres_id);
+create index FKlh4utaq074vxednb9ebhltls3
+	on films_has_film_genres (film_genres_id)
+;
 
-CREATE TABLE halls
+create table halls
 (
-  id         INT AUTO_INCREMENT
-    PRIMARY KEY,
-  capacity   INT NOT NULL,
-  cinemas_id INT NOT NULL,
-  CONSTRAINT FKou8ffpji5dira798i18o5fpmn
-  FOREIGN KEY (cinemas_id) REFERENCES cinemas (id),
-  CONSTRAINT fk_halls_cinemas1
-  FOREIGN KEY (cinemas_id) REFERENCES cinemas (id)
+	id int auto_increment
+		primary key,
+	capacity int not null,
+	cinemas_id int not null,
+	constraint FKou8ffpji5dira798i18o5fpmn
+		foreign key (cinemas_id) references cinemas (id),
+	constraint fk_halls_cinemas1
+		foreign key (cinemas_id) references cinemas (id)
 )
-  ENGINE = InnoDB
-  CHARSET = utf8;
+engine=InnoDB charset=utf8
+;
 
-CREATE INDEX fk_halls_cinemas1_idx
-  ON halls (cinemas_id);
+create index fk_halls_cinemas1_idx
+	on halls (cinemas_id)
+;
 
-CREATE TABLE hibernate_sequences
+create table hibernate_sequences
 (
-  sequence_name VARCHAR(255) NOT NULL
-    PRIMARY KEY,
-  next_val      BIGINT       NULL
+	sequence_name varchar(255) not null
+		primary key,
+	next_val bigint null
 )
-  ENGINE = InnoDB;
+engine=InnoDB
+;
 
-CREATE TABLE seances
+create table seances
 (
-  id             INT AUTO_INCREMENT
-    PRIMARY KEY,
-  date           DATE        NOT NULL,
-  time           TIME        NOT NULL,
-  films_id       INT         NOT NULL,
-  film_format_id INT         NOT NULL,
-  age_limit      VARCHAR(10) NOT NULL,
-  halls_id       INT         NOT NULL,
-  CONSTRAINT FKck4umx7to9yjg3il447ld3d4k
-  FOREIGN KEY (films_id) REFERENCES films (id),
-  CONSTRAINT fk_seances_films1
-  FOREIGN KEY (films_id) REFERENCES films (id),
-  CONSTRAINT FKcl3k69vqill2clf1jrd215btj
-  FOREIGN KEY (film_format_id) REFERENCES film_format (id),
-  CONSTRAINT fk_seances_film_format1
-  FOREIGN KEY (film_format_id) REFERENCES film_format (id),
-  CONSTRAINT FKnwq6xbwil3kv4vsvuou6sx32q
-  FOREIGN KEY (halls_id) REFERENCES halls (id),
-  CONSTRAINT fk_seances_halls1
-  FOREIGN KEY (halls_id) REFERENCES halls (id)
+	id int auto_increment
+		primary key,
+	date date not null,
+	time time not null,
+	films_id int not null,
+	film_format_id int not null,
+	age_limit varchar(10) not null,
+	halls_id int not null,
+	constraint FKck4umx7to9yjg3il447ld3d4k
+		foreign key (films_id) references films (id),
+	constraint fk_seances_films1
+		foreign key (films_id) references films (id),
+	constraint FKcl3k69vqill2clf1jrd215btj
+		foreign key (film_format_id) references film_format (id),
+	constraint fk_seances_film_format1
+		foreign key (film_format_id) references film_format (id),
+	constraint FKnwq6xbwil3kv4vsvuou6sx32q
+		foreign key (halls_id) references halls (id),
+	constraint fk_seances_halls1
+		foreign key (halls_id) references halls (id)
 )
-  ENGINE = InnoDB
-  CHARSET = utf8;
+engine=InnoDB charset=utf8
+;
 
-CREATE INDEX fk_seances_films1_idx
-  ON seances (films_id);
+create index fk_seances_films1_idx
+	on seances (films_id)
+;
 
-CREATE INDEX fk_seances_film_format1_idx
-  ON seances (film_format_id);
+create index fk_seances_film_format1_idx
+	on seances (film_format_id)
+;
 
-CREATE INDEX fk_seances_halls1_idx
-  ON seances (halls_id);
+create index fk_seances_halls1_idx
+	on seances (halls_id)
+;
 
-CREATE TABLE tickets
+create table tickets
 (
-  id         INT AUTO_INCREMENT
-    PRIMARY KEY,
-  place      INT   NOT NULL,
-  price      FLOAT NOT NULL,
-  seances_id INT   NULL,
-  users_id   INT   NULL,
-  CONSTRAINT UK_apmhfqsoercr7hakuxt5371dw
-  UNIQUE (place),
-  CONSTRAINT FKboa5aogj2m9watvlnupev41cu
-  FOREIGN KEY (seances_id) REFERENCES seances (id)
+	id int auto_increment
+		primary key,
+	place int not null,
+	price float not null,
+	seances_id int null,
+	users_id int null,
+	constraint UK_apmhfqsoercr7hakuxt5371dw
+		unique (place),
+	constraint FKboa5aogj2m9watvlnupev41cu
+		foreign key (seances_id) references seances (id)
 )
-  ENGINE = InnoDB;
+engine=InnoDB
+;
 
-CREATE INDEX FKboa5aogj2m9watvlnupev41cu
-  ON tickets (seances_id);
+create index FKboa5aogj2m9watvlnupev41cu
+	on tickets (seances_id)
+;
 
-CREATE INDEX FK384xu0lexsjs1mqhaj0cese1t
-  ON tickets (users_id);
+create index FK384xu0lexsjs1mqhaj0cese1t
+	on tickets (users_id)
+;
 
-CREATE TABLE users
+create table users
 (
-  id       INT AUTO_INCREMENT
-    PRIMARY KEY,
-  email    VARCHAR(255) NULL,
-  login    VARCHAR(255) NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  type     VARCHAR(255) NOT NULL,
-  CONSTRAINT UK_6dotkott2kjsp8vw4d0m25fb7
-  UNIQUE (email),
-  CONSTRAINT UK_ow0gan20590jrb00upg3va2fn
-  UNIQUE (login)
+	id int auto_increment
+		primary key,
+	email varchar(255) null,
+	login varchar(255) not null,
+	password varchar(255) not null,
+	type varchar(255) not null,
+	constraint UK_6dotkott2kjsp8vw4d0m25fb7
+		unique (email),
+	constraint UK_ow0gan20590jrb00upg3va2fn
+		unique (login)
 )
-  ENGINE = InnoDB;
+engine=InnoDB
+;
 
-ALTER TABLE tickets
-  ADD CONSTRAINT FK384xu0lexsjs1mqhaj0cese1t
-FOREIGN KEY (users_id) REFERENCES users (id);
+alter table tickets
+	add constraint FK384xu0lexsjs1mqhaj0cese1t
+		foreign key (users_id) references users (id)
+;
 
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (1,'564cv6','hyrdcvsr',NULL,'MAN','ACTOR',NULL,'sffdfgfgd');
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (2,'sds','fgdf',NULL,'MAN','DIRECTOR','studio',NULL);
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (3,'gdf','fgdfgfgf',NULL,'MAN','ACTOR',NULL,'yes');
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (4,'sds','fgdf',NULL,'MAN','DIRECTOR','studio',NULL);
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (5,'gdf','fgdfgfgf',NULL,'MAN','ACTOR',NULL,'yes');
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (12,'sds','fgdf',NULL,'MAN','DIRECTOR','studio',NULL);
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (13,'gdf','fgdfgfgf',NULL,'MAN','ACTOR',NULL,'yes');
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (14,'Brad','Pitt','2018-02-10','WOMAN','ACTOR',NULL,'Best one');
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (15,'Angelina','Jolie','2018-02-10','WOMAN','ACTOR',NULL,'Best one');
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (16,'Brad','Pitt','2018-02-10','WOMAN','ACTOR',NULL,NULL);
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (17,'Angelina','Jolie','2018-02-10','WOMAN','DIRECTOR',NULL,NULL);
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (18,'Jason','Woorhis','2018-02-10','MAN','ACTOR',NULL,NULL);
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (19,'Brad','Pitt','2018-02-10','MAN','DIRECTOR',NULL,NULL);
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (20,'Brad','Pitt','2018-02-10','MAN','DIRECTOR','Universal',NULL);
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (21,'Brad','Pitt','2018-02-10','MAN','DIRECTOR','Universal',NULL);
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (23,'Brad','Pitt',NULL,'MAN','DIRECTOR','studioo',NULL);
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (24,'Brad','Pitt',NULL,'MAN','ACTOR',NULL,NULL);
+INSERT INTO `cast_members` (`id`,`name`,`surname`,`birthday`,`gender`,`type`,`studio`,`understudy`) VALUES (25,'Brad','Pitt',NULL,'MAN','DIRECTOR',NULL,NULL);

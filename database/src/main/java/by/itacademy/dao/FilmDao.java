@@ -1,11 +1,8 @@
 package by.itacademy.dao;
 
-import by.itacademy.dto.CastMemberDto;
-import by.itacademy.entity.CastMember;
 import by.itacademy.entity.Film;
 import org.hibernate.Session;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public class FilmDao extends BaseDao<Film> {
