@@ -17,14 +17,14 @@ public class DirectorDaoTest extends BaseTest {
         cm.setBirthday(LocalDate.now());
         cm.setName("Aaron");
         cm.setSurname("Johnson");
-        cm.setGender(Gender.WOMAN);
+        cm.setGender("WOMAN");
         cm.setStudio("Universal");
 
         Director cm2 = new Director();
         cm2.setBirthday(LocalDate.now());
         cm2.setName("Ruby");
         cm2.setSurname("Sky");
-        cm2.setGender(Gender.WOMAN);
+        cm2.setGender("WOMAN");
         cm2.setStudio("Universal");
 
         DirectorDao directorDao = new DirectorDao();

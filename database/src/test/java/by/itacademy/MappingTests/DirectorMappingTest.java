@@ -19,7 +19,7 @@ public class DirectorMappingTest extends BaseTest {
 
         Director d = new Director();
         d.setStudio("studioo");
-        d.setGender(Gender.MAN);
+        d.setGender("MAN");
         d.setName("sds");
         d.setSurname("fgdf");
         session.save(d);

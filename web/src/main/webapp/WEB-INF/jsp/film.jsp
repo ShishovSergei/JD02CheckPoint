@@ -15,25 +15,22 @@
 </head>
 <body>
 ${requestScope.film}
-<form action="" method="get">
+<form action="" method="post">
     <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="inputEmail4">Text</label>
-            <input type="text" class="form-control" id="inputEmail4" placeholder="Text" name="nameTitle">
-        </div>
-        <div class="form-group">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                    Check me out
-                </label>
-            </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">Name</label>
+            <select id="inputState" class="form-control" name ="name">
+                <option selected>Brad</option>
+                <option>Matthew</option>
+                <option>Alex</option>
+            </select>
         </div>
         <div class="form-group col-md-4">
-            <label for="inputState">State</label>
-            <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>...</option>
+            <label for="inputState">Surname</label>
+            <select id="inputState2" class="form-control" name ="surname">
+                <option selected>Pitt</option>
+                <option>Andrews</option>
+                <option>Miles</option>
             </select>
         </div>
     </div>

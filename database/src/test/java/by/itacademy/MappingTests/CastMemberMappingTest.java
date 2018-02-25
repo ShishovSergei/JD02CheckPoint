@@ -30,7 +30,7 @@ public class CastMemberMappingTest extends BaseTest {
         cm.setBirthday(LocalDate.now());
         cm.setName("Jason");
         cm.setSurname("Woorhis");
-        cm.setGender(Gender.MAN);
+        cm.setGender("MAN");
         cm.setFilms(films);
         session.save(cm);
 

@@ -19,19 +19,19 @@ public class CastMemberDaoTest extends BaseTest {
         cm.setBirthday(LocalDate.now());
         cm.setName("Jason");
         cm.setSurname("Woorhis");
-        cm.setGender(Gender.MAN);
+        cm.setGender("MAN");
 
         CastMember cm2 = new Director();
         cm2.setBirthday(LocalDate.now());
         cm2.setName("Anna");
         cm2.setSurname("Faris");
-        cm2.setGender(Gender.WOMAN);
+        cm2.setGender("WOMAN");
 
         CastMemberDao<CastMember> castMemberDao = new CastMemberDao<>();
         castMemberDao.save(cm);
         castMemberDao.save(cm2);
 
-        Assert.assertEquals(castMemberDao.findCastMembersByGender(Gender.MAN).size(),1);
+        Assert.assertEquals(castMemberDao.findCastMembersByGender("MAN").size(),1);
     }
 
     @Test
@@ -41,13 +41,13 @@ public class CastMemberDaoTest extends BaseTest {
         cm.setBirthday(LocalDate.now());
         cm.setName("Brad");
         cm.setSurname("Pitt");
-        cm.setGender(Gender.WOMAN);
+        cm.setGender("WOMAN");
 
         CastMember cm2 = new Director();
         cm2.setBirthday(LocalDate.now());
         cm2.setName("Angelina");
         cm2.setSurname("Jolie");
-        cm2.setGender(Gender.WOMAN);
+        cm2.setGender("WOMAN");
 
         CastMemberDao<CastMember> castMemberDao = new CastMemberDao<>();
         castMemberDao.save(cm);

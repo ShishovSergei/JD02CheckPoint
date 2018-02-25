@@ -17,14 +17,14 @@ public class ActorDaoTest extends BaseTest {
         cm.setBirthday(LocalDate.now());
         cm.setName("Brad");
         cm.setSurname("Pitt");
-        cm.setGender(Gender.WOMAN);
+        cm.setGender("WOMAN");
         cm.setUnderstudy("Best one");
 
         Actor cm2 = new Actor();
         cm2.setBirthday(LocalDate.now());
         cm2.setName("Angelina");
         cm2.setSurname("Jolie");
-        cm2.setGender(Gender.WOMAN);
+        cm2.setGender("WOMAN");
         cm2.setUnderstudy("Best one");
 
         ActorDao actorDao = new ActorDao();

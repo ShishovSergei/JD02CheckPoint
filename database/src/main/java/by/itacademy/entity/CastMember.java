@@ -47,8 +47,7 @@ public class CastMember extends BaseEntity {
     private LocalDate birthday;
 
     @Column(name = "gender", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
+    private String gender;
 
     @ManyToMany(mappedBy = "castMembers")
     private Set<Film> films = new HashSet<>();

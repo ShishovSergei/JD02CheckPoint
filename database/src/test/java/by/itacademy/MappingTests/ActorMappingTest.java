@@ -32,7 +32,7 @@ public class ActorMappingTest extends BaseTest {
         actor.setBirthday(LocalDate.now());
         actor.setName("Jason");
         actor.setSurname("Woorhis");
-        actor.setGender(Gender.MAN);
+        actor.setGender("MAN");
         actor.setFilms(films);
         session.save(actor);
 

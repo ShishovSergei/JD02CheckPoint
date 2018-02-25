@@ -1,5 +1,7 @@
 package by.itacademy.dao;
 
+import by.itacademy.dto.CastMemberDto;
+import by.itacademy.entity.CastMember;
 import by.itacademy.entity.Film;
 import org.hibernate.Session;
 
@@ -33,28 +35,6 @@ public class FilmDao extends BaseDao<Film> {
         List<Film> result = session
                 .createQuery("select e from Film e where e.country=:country", Film.class)
                 .setParameter("country", country)
-                .getResultList();
-
-        session.getTransaction().commit();
-        session.close();
-
-        return result;
-
-    }
-
-    public List<Film> findFilmsByTitleRealiseDateCountry(String title, LocalDate realiseDate, String country, int limit, int offset) {
-
-        Session session = SESSION_FACTORY.openSession();
-        session.beginTransaction();
-
-        List<Film> result = session
-                .createQuery("select e from Film e where e.title=:title and "
-                        + "e.realiseDate=:realiseDate and e.country=:country", Film.class)
-                .setParameter("title", title)
-                .setParameter("realiseDate", realiseDate)
-                .setParameter("country", country)
-                .setFirstResult(offset)
-                .setMaxResults(limit)
                 .getResultList();
 
         session.getTransaction().commit();
