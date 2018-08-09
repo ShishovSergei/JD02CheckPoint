@@ -1,4 +1,4 @@
-package by.itacademy;
+package by.itacademy.old;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

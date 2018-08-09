@@ -1,3 +1,4 @@
+/*
 package by.itacademy.MappingTests;
 
 import by.itacademy.BaseTest;
@@ -34,3 +35,4 @@ public class SeanceMappingTest extends BaseTest {
         session.close();
     }
 }
+*/

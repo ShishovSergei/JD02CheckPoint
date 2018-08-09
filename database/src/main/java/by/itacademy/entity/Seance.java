@@ -13,7 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -28,7 +28,7 @@ import java.util.Set;
 public class Seance extends BaseEntity {
 
     @Column(name = "date", nullable = false)
-    private LocalDate date;
+    private Date date;
 
     @Column(name = "time", nullable = false)
     private LocalTime time;
@@ -51,20 +51,20 @@ public class Seance extends BaseEntity {
     @OneToMany(mappedBy = "seance")
     private Set<Ticket> tickets = new HashSet<>();
 
-    public Seance(LocalDate date, LocalTime time, Hall hall, FilmFormat filmFormat) {
+    public Seance(Date date, LocalTime time, Hall hall, FilmFormat filmFormat) {
         this.date = date;
         this.time = time;
         this.hall = hall;
         this.filmFormat = filmFormat;
     }
 
-    public Seance(LocalDate date, LocalTime time) {
+    public Seance(Date date, LocalTime time) {
         this.date = date;
         this.time = time;
 
     }
 
-    public Seance(LocalDate date, LocalTime time, String ageLimit) {
+    public Seance(Date date, LocalTime time, String ageLimit) {
         this.date = date;
         this.time = time;
         this.ageLimit = ageLimit;

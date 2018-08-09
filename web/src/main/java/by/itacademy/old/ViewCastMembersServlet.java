@@ -1,7 +1,8 @@
-package by.itacademy;
+package by.itacademy.old;
 
 import by.itacademy.dto.CastMemberDto;
 import by.itacademy.entity.CastMember;
+import by.itacademy.service.CastMemberServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -28,9 +29,9 @@ public class ViewCastMembersServlet extends HttpServlet {
         CastMemberDto castMemberDto = new CastMemberDto(((String) session.getAttribute("gender")),
                 (String) session.getAttribute("name"),
                 (String) session.getAttribute("surname"), limit, page);
-        List<CastMember> castMembers = new CastMemberService().getCastMembersByParams(castMemberDto);
+        List<CastMember> castMembers = new CastMemberServiceImpl().getCastMembersByParams(castMemberDto);
         req.setAttribute("castmembers", castMembers);
-        req.setAttribute("pages", Math.ceil(new CastMemberService().getCastMembersCount(castMemberDto) / limit));
+        req.setAttribute("pages", Math.ceil(new CastMemberServiceImpl().getCastMembersCount(castMemberDto) / limit));
         getServletContext().getRequestDispatcher("/WEB-INF/jsp/viewcastmembers.jsp").forward(req, resp);
     }
 }

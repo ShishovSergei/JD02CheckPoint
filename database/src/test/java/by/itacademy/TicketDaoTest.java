@@ -1,3 +1,4 @@
+/*
 package by.itacademy;
 
 import by.itacademy.dao.FilmDao;
@@ -56,3 +57,4 @@ public class TicketDaoTest extends BaseTest {
 
 
 }
+*/

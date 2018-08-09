@@ -1,16 +1,28 @@
 package by.itacademy;
 
+import by.itacademy.config.DatabaseConfig;
 import by.itacademy.dao.FilmDao;
 import by.itacademy.entity.Film;
+import by.itacademy.repositories.FilmRepository;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
+import java.util.List;
 
-public class FilmDaoTest extends BaseTest{
+@RunWith(SpringRunner.class)
+@ContextConfiguration(classes = DatabaseConfig.class)
+public class FilmDaoTest /*extends BaseTest*/{
+
+    @Autowired
+    private FilmRepository filmRepository;
 
     @Test
-    public void testFindById() {
+    public void testFindByCountry() {
 
         FilmDao filmDao = new FilmDao();
         Film film = new Film("Бессонные ночи", LocalDate.now(),
@@ -19,9 +31,11 @@ public class FilmDaoTest extends BaseTest{
 
         Film found = filmDao.findById(1);
         Assert.assertEquals(found.getCountry(), "Беларусь");
+        List<Film> found1 = filmRepository.findFilmsByCountry("Беларусь");
+
     }
 
-    @Test
+   /* @Test
     public void testUpdate(){
 
         FilmDao filmDao = new FilmDao();
@@ -89,5 +103,5 @@ public class FilmDaoTest extends BaseTest{
         filmDao.save(film2);
 
         Assert.assertEquals(filmDao.findFilmsByCountry("USA").size(),2);
-    }
+    }*/
 }

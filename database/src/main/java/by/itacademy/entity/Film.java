@@ -22,7 +22,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@ToString
+@ToString(callSuper = true)
 @Table(name = "films")
 public class Film extends BaseEntity {
 

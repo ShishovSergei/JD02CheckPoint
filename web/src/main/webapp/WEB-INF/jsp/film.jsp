@@ -1,4 +1,4 @@
-<%@ page import="by.itacademy.FilmServlet" %><%--
+<%@ page import="by.itacademy.old.FilmServlet" %><%--
   Created by IntelliJ IDEA.
   User: Сергей
   Date: 19.01.2018

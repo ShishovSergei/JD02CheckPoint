@@ -16,7 +16,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import java.time.LocalDate;
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -41,7 +41,7 @@ public class CastMember extends BaseEntity {
     private String surname;
 
     @Column(name = "birthday")
-    private LocalDate birthday;
+    private Date birthday;
 
     @Column(name = "gender", nullable = false)
     private String gender;

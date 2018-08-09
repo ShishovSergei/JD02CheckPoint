@@ -4,25 +4,26 @@ import by.itacademy.dao.CastMemberDao;
 import by.itacademy.entity.Actor;
 import by.itacademy.entity.CastMember;
 import by.itacademy.entity.Director;
-import by.itacademy.enums.Gender;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 public class CastMemberDaoTest extends BaseTest {
+    static final Date DATE = new Date(1451665447567L);
 
     @Test
     public void testCastMembersByGender(){
 
+
         CastMember cm = new Actor();
-        cm.setBirthday(LocalDate.now());
+        cm.setBirthday(DATE);
         cm.setName("Jason");
         cm.setSurname("Woorhis");
         cm.setGender("MAN");
 
         CastMember cm2 = new Director();
-        cm2.setBirthday(LocalDate.now());
+        cm2.setBirthday(DATE);
         cm2.setName("Anna");
         cm2.setSurname("Faris");
         cm2.setGender("WOMAN");
@@ -38,13 +39,13 @@ public class CastMemberDaoTest extends BaseTest {
     public void testFindCastMembersByFullName(){
 
         CastMember cm = new Actor();
-        cm.setBirthday(LocalDate.now());
+        cm.setBirthday(DATE);
         cm.setName("Brad");
         cm.setSurname("Pitt");
         cm.setGender("WOMAN");
 
         CastMember cm2 = new Director();
-        cm2.setBirthday(LocalDate.now());
+        cm2.setBirthday(DATE);
         cm2.setName("Angelina");
         cm2.setSurname("Jolie");
         cm2.setGender("WOMAN");

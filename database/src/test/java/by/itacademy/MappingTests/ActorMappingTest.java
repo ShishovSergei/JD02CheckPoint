@@ -2,20 +2,19 @@ package by.itacademy.MappingTests;
 
 import by.itacademy.BaseTest;
 import by.itacademy.entity.Actor;
-import by.itacademy.entity.CastMember;
 import by.itacademy.entity.Film;
-import by.itacademy.enums.Gender;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.sql.Date;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
 
 public class ActorMappingTest extends BaseTest {
+    static final Date DATE = new Date(1451665447567L);
 
     @Test
     public void testSaveActor() {
@@ -29,7 +28,7 @@ public class ActorMappingTest extends BaseTest {
         films.add(f2);
 
         Actor actor = new Actor("Will");
-        actor.setBirthday(LocalDate.now());
+        actor.setBirthday(DATE);
         actor.setName("Jason");
         actor.setSurname("Woorhis");
         actor.setGender("MAN");
